@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Sobra do Bem</title>
+    <link rel="stylesheet" href="{% static 'css/sdbstyle.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'images/cuiasdb.png' %}" alt="" width="50" height="40">
+                <p class="logo-text">Sobra do bem</p>
+            </a>
+            <div class="btns">
+                <a href="{% url 'cadastro' %}" class="btn btn2">Cadastrar</a>
+                <a href="{% url 'login' %}" class="btn btn2">Entrar</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container cadastro-container">
+        <div class="text-container">
+            <h1 class="title-text">Cadastro</h1>
+            <form method="POST" class="w-50 d-flex flex-column gap-3">
+                {% csrf_token %}
+                <input type="text" name="nome" class="form-control" placeholder="Nome completo" required>
+                <input type="email" name="email" class="form-control" placeholder="E-mail" required>
+                <input type="password" name="senha" class="form-control" placeholder="Senha" required>
+                <button type="submit" class="btn btn2">Cadastrar</button>
+            </form>
+            <p class="mt-3">Já tem conta? <a href="{% url 'login' %}">Entre</a></p>
+        </div>
+    </main>
+</body>
+</html>
