@@ -1,4 +1,5 @@
 {% load static %}
+{% load socialaccount %}  {# Necessário para provider_login_url #}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -62,7 +63,9 @@
 
                 <div class="btn-group-login">
                     <button type="submit" class="btn btn-login">Entrar</button>
-                    <a href="#" class="btn btn-google"><i class="fab fa-google"></i> Entrar com Google</a>
+                    <a href="{% provider_login_url 'google' %}" class="btn btn-google">
+                        <i class="fab fa-google"></i> Entrar com Google
+                    </a>
                 </div>
             </form>
 
