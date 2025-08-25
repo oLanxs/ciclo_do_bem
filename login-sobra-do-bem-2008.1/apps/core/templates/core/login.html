@@ -10,97 +10,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/sdbstyle.css' %}">
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            background-color: #E6f5f5;
-        }
-
-        .login-wrapper {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .login-box {
-            background-color: #fff;
-            padding: 3rem;
-            border-radius: 0.8rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .login-box h1 {
-            text-align: center;
-            color: #674525;
-            margin-bottom: 2rem;
-        }
-
-        .form-control {
-            padding: 0.75rem 1rem;
-            font-size: 1.1rem;
-            border-radius: 0.4rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            border-color: #e69a6e;
-            box-shadow: 0 0 8px rgba(230, 154, 110, 0.3);
-        }
-
-        .btn-group-login {
-            display: flex;
-            gap: 1rem;
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        .btn-login, .btn-google {
-            flex: 1;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem;
-            border-radius: 0.4rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn-login {
-            background-color: #674525;
-            color: #fff;
-        }
-
-        .btn-login:hover {
-            background-color: #54391b;
-        }
-
-        .btn-google {
-            background-color: #4285F4;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .btn-google:hover {
-            background-color: #357ae8;
-            transform: scale(1.05);
-            text-decoration: none;
-        }
-
-        .login-box p {
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-
-        /* Responsivo para telas menores */
-        @media(max-width: 576px){
-            .btn-group-login {
-                flex-direction: column;
-            }
-        }
+        html, body { height: 100%; margin: 0; background-color: #E6f5f5; }
+        .login-wrapper { height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .login-box { background-color: #fff; padding: 3rem; border-radius: 0.8rem; box-shadow: 0 4px 20px rgba(0,0,0,0.15); width: 100%; max-width: 500px; }
+        .login-box h1 { text-align: center; color: #674525; margin-bottom: 2rem; }
+        .form-control { padding: 0.75rem 1rem; font-size: 1.1rem; border-radius: 0.4rem; transition: all 0.3s ease; }
+        .form-control:focus { border-color: #e69a6e; box-shadow: 0 0 8px rgba(230, 154, 110, 0.3); }
+        .btn-group-login { display: flex; gap: 1rem; width: 100%; margin-top: 1rem; }
+        .btn-login, .btn-google { flex: 1; font-weight: bold; display: flex; align-items: center; justify-content: center; padding: 0.75rem; border-radius: 0.4rem; transition: all 0.3s ease; cursor: pointer; }
+        .btn-login { background-color: #674525; color: #fff; }
+        .btn-login:hover { background-color: #54391b; }
+        .btn-google { background-color: #4285F4; color: #fff; text-decoration: none; }
+        .btn-google:hover { background-color: #357ae8; transform: scale(1.05); text-decoration: none; }
+        .login-box p { text-align: center; margin-top: 1.5rem; }
+        @media(max-width: 576px){ .btn-group-login { flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -133,6 +56,7 @@
 
             <form method="POST" class="d-flex flex-column gap-3">
                 {% csrf_token %}
+                <!-- Campo email obrigatório -->
                 <input type="email" name="email" class="form-control" placeholder="E-mail" required>
                 <input type="password" name="senha" class="form-control" placeholder="Senha" required>
 
