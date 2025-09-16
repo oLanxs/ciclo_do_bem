@@ -1,13 +1,11 @@
-from django.shortcuts import render
-
-def index(request):
-    return render (request,'core/index.html')
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+
 
 def index(request):
     return render(request, 'core/index.html')
+
 
 def login_estabelecimento(request):
     if request.method == 'POST':
@@ -25,6 +23,7 @@ def login_estabelecimento(request):
 
     return render(request, 'core/login_estabelecimento.html')
 
+
 def login_instituicao(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -40,3 +39,8 @@ def login_instituicao(request):
             messages.error(request, "Email ou senha inválidos ou tipo incorreto.")
 
     return render(request, 'core/login_instituicao.html')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('index')

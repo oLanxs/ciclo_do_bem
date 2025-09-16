@@ -134,3 +134,4 @@ AUTHENTICATION_BACKENDS = [
     'core.backends.EmailBackend',  # nosso backend para login via email
     'django.contrib.auth.backends.ModelBackend',  # padrão (opcional)
 ]
+
