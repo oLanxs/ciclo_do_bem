@@ -45,7 +45,12 @@ def logout_view(request):
     return redirect('index')
 
 
-# Páginas de dashboard
+# 🔹 Página Saiba Mais
+def saiba_mais(request):
+    return render(request, 'core/saiba_mais.html')
+
+
+# 🔹 Páginas de dashboard
 @login_required
 def dashboard_estabelecimento(request):
     return render(request, 'core/dashboard_estabelecimento.html')

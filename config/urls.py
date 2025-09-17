@@ -14,4 +14,7 @@ urlpatterns = [
     # Dashboards
     path('dashboard/estabelecimento/', views.dashboard_estabelecimento, name='dashboard_estabelecimento'),
     path('dashboard/instituicao/', views.dashboard_instituicao, name='dashboard_instituicao'),
+
+    # 🔹 Página "Saiba Mais"
+    path('saiba-mais/', views.saiba_mais, name='saiba_mais'),
 ]
