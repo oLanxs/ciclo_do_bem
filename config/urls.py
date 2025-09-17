@@ -6,10 +6,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
 
-    # Rotas de login
+    # Logins
     path('login/estabelecimento/', views.login_estabelecimento, name='login_estabelecimento'),
     path('login/instituicao/', views.login_instituicao, name='login_instituicao'),
-
-    # Rota de logout
     path('logout/', views.logout_view, name='logout'),
+
+    # Dashboards
+    path('dashboard/estabelecimento/', views.dashboard_estabelecimento, name='dashboard_estabelecimento'),
+    path('dashboard/instituicao/', views.dashboard_instituicao, name='dashboard_instituicao'),
 ]

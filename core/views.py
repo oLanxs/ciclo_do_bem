@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -14,10 +15,9 @@ def login_estabelecimento(request):
 
         user = authenticate(request, email=email, password=password)
 
-        # Verifica se o usuário existe e se é do tipo estabelecimento
         if user is not None and user.tipo == 'estabelecimento':
             login(request, user)
-            return redirect('index')
+            return redirect('dashboard_estabelecimento')  # redireciona para o dashboard
         else:
             messages.error(request, "Email ou senha inválidos ou tipo incorreto.")
 
@@ -31,10 +31,9 @@ def login_instituicao(request):
 
         user = authenticate(request, email=email, password=password)
 
-        # Verifica se o usuário existe e se é do tipo instituição
         if user is not None and user.tipo == 'instituicao':
             login(request, user)
-            return redirect('index')
+            return redirect('dashboard_instituicao')  # redireciona para o dashboard
         else:
             messages.error(request, "Email ou senha inválidos ou tipo incorreto.")
 
@@ -44,3 +43,14 @@ def login_instituicao(request):
 def logout_view(request):
     logout(request)
     return redirect('index')
+
+
+# Páginas de dashboard
+@login_required
+def dashboard_estabelecimento(request):
+    return render(request, 'core/dashboard_estabelecimento.html')
+
+
+@login_required
+def dashboard_instituicao(request):
+    return render(request, 'core/dashboard_instituicao.html')
