@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from core import views
 
 urlpatterns = [
@@ -15,6 +15,9 @@ urlpatterns = [
     path('dashboard/estabelecimento/', views.dashboard_estabelecimento, name='dashboard_estabelecimento'),
     path('dashboard/instituicao/', views.dashboard_instituicao, name='dashboard_instituicao'),
 
-    # 🔹 Página "Saiba Mais"
+    # Página "Saiba Mais"
     path('saiba-mais/', views.saiba_mais, name='saiba_mais'),
+
+    # 🔹 Rotas do app ofertas
+    path('', include('ofertas.urls')),  # << inclui as URLs do app ofertas
 ]
